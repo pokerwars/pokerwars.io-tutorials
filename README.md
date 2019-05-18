@@ -1,4 +1,4 @@
 Pokerwars.io Tutorials
 =
 
-Collection of tutorial for the pokerwars.io platform.
+Collection of tutorials for the pokerwars.io platform.
