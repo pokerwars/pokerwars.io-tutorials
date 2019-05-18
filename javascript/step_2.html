@@ -1,0 +1,106 @@
+<div class="instructions">
+    <h1>Pokewars actions</h1>
+    <h2>play</h2>
+    <p>Let's look at the play function first. Here in the <i>body</i> of the request we have an object called
+        <b>gameContext</b>. This contains all the information about the tournment e.g. the blinds, the turn, the cards
+        on the table and the different players and ther chips and bets. It will also contain information about your own
+        cards.
+        <pre>
+    {
+        "smallBlind": 1,
+        "bigBlind": 2,
+        "yourCards": [
+            { "rank": "deuce", "suit": "clubs" },
+            { "rank": "seven", "suit": "hearts" }
+        ],
+        "tableCards": [
+            { "rank": "ace", "suit": "clubs" },
+            { "rank": "eight", "suit": "hearts" },
+            { "rank": "queen", "suit": "diamonds" },
+            { "rank": "three", "suit": "spades" },
+            { "rank": "king", "suit": "hearts" }
+        ],
+        "players": [
+            {
+                "username": "usernameOfSmallBlindBot",
+                "chips": 100,
+                "pot": 20,
+                "isAllIn": false,
+                "hasFolded": false
+            },
+            {
+                "username": "usernameOfbigBlindBot",
+                "chips": 22,
+                "pot": 10,
+                "isAllIn": false,
+                "hasFolded": true
+            },
+                {
+                "username": "bot3",
+                "chips": 0,
+                "pot": 20,
+                "isAllIn": true,
+                "hasFolded": false
+            },
+            {
+                "username": "yourUsername",
+                "chips": 45,
+                "pot": 10,
+                "isAllIn": false,
+                "hasFolded": false
+            },
+            ...
+        }
+    }
+        </pre>
+        With this information you will have to decide what to do next.
+    </p>
+    <p>Remember, the <i>play</i> endpoint will be called by the Pokerwars Engine. It will POST this data to you, and
+        you must respond with your next action. We do this by returning a <i>200 OK</i> status code with a JSON payload
+        that looks like this:
+        <pre>
+        {
+            action: 'SOME_ACTION'
+        }</pre>
+        There a multiple actions available, check the Pokerwars <a href="http://localhost:4200/how-to-play.html#_play"
+            target="_blank">documentation</a> for more information.
+    </p>
+    <p>In Express, we send a response by assigning a status code and a payload directly in the middleware function like
+        this.
+        <pre>res.status(200).send(SOME_PAYLOAD);</pre>
+    </p>
+    <p class="exercise">Go ahead a create a response with a payload that always do <b>'fold'</b>. Store the payload in a <i>var</i> called
+        <b>nextMove</b>. HINT - In Javascript we can assign a JSON object directly to a <i>var</i> like this:
+        <pre>var a = { foo: 'bar' }</pre>
+    </p>
+    <h2>ping</h2>
+    <p>This GET request is made by the Pokerwars Engine to your poker bot endpoint whe it subscribes. It ensures that
+        you are subscribing with an alive and valid bot. You will then have to replay with a <i>pong</i> payload and a
+        <i>200 OK</i> status code.
+        <pre>{ pong: true }</pre>
+    </p>
+    <p>More information can be found in the Pokerwars <a href="http://localhost:4200/how-to-play.html#_ping"
+            target="_blank">documentation</a>
+    </p>
+    <p class="exercise">Go ahead and finish the <i>ping</i> function by sending a <i>pong</i> like the one above. Don't use an
+        intermediate <i>var</i> this time.</p>
+    <h2>notifications</h2>
+    <p>These are optional! You decide if you want them when you subscribe. Your bot does not need to provide an API for
+        these, but they can give you useful hints on what is happening during the tournament.</p>
+    <p>Please do not use notifications in your poker bot logic, as they are not guaranteed to always be sent. They are
+        only informative so you are aware of what your bot is doing.
+    </p>
+    <p>We are currently sending notifications for things like:
+        <ul>
+            <li>Start of a tournament</li>
+            <li>End of a tournament</li>
+            <li>When a tournament is cancelled for any reason</li>
+            <li>When your bot replies with a wrong poker action (i.e. tries to check when someone has bet or raised
+                before)</li>
+        </ul>
+    </p>
+    <p>Once again, there is more information in the Pokerwars <a href="http://localhost:4200/how-to-play.html#notifications"
+            target="_blank">documentation</a>, feel free to check it out.
+    </p>
+    <p>In this case we have created the function for you. We are just logging the notifcations in the console, but you could potentially store them or display them somewhere else.</p>
+</div>
