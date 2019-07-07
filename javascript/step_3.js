@@ -1,60 +1,28 @@
+// Require and initialise Express
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 8090,
-  request = require('request'),
   bodyParser = require('body-parser');
 
+// Middleware
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use(bodyParser.json());
 
-var play = function (req, res) {
-  var gameInfo = req.body;
-  var nextMove = {
-    action: 'fold'
-  };
-  res.status(200).send(nextMove);
-};
+// Functions
 
-var ping = function (req, res) {
-  res.status(200).send({
-    pong: true
-  });
-};
+var play = function (req, res) {};
 
-var notifications = function (req, res) {
-  var notification = req.body;
-  console.log(notification.type, notification.message);
-  res.status(200).send();
-};
+// Add here functions for ping and notifications
+
+// Routes
 
 app.route('/pokerwars.io/play').post(play);
 
-app.route('/pokerwars.io/ping').get(ping);
+// Add here routes for ping and notifications
 
-app.route('/pokerwars.io/notifications').post(notifications);
+// Listen
 
 app.listen(port);
-
-// Subscribe
-
-// Create a POST request to the Engine /subscribe endpoint
-request.post('????', {
-    json: {
-      // Add your username and apiToken here
-      ????
-      botEndpoint: 'http://1.2.3.4:8080',
-      notifications: false
-    }
-  },
-  function (error, response, body) {
-    // Check the status code here
-    if (!error && response.statusCode == ????) {
-      console.log('Subscribed to pokerwars.io successfully! Response: ', body);
-    } else {
-      console.log('Your bot did NOT subscribe succesfully! Reason: ', body);
-      process.exit(-1);
-    }
-  }
-);

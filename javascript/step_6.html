@@ -1,0 +1,35 @@
+<div class="instructions">
+  <h1>Subscribing to the Engine</h1>
+  <p>In the previous modules, we built everything we needed to make our bot play. But there is one last thing to do, we
+    need to subscribe to the tournament! In Pokerwars, this is done by calling the <i>/subscribe</i> endpoint in the
+    Engine, which lives in <b>https://play.pokerwars.io/v1/pokerwars/subscribe</b>.
+  </p>
+  <p class="exercise">Go ahead an modify the code to make a POST request to the <i>/subscribe</i> endpoint.</p>
+  <p>The Engine needs to know where to call us for the different actions of the tournament. We already explained that,
+    by convention, we need to expose a /play and a /ping endpoints, and optionally, a /notification endpoint. Now is
+    when we tell the Engine the base URL for our application, so that it can finds us. We also need to specify our
+    username and API token. And whether we want notifications or not (i.e. whether we want the Engine to call us in
+    our /notification endpoint). We submit all that information in a JSON object:
+    <pre>
+  json: {
+    username: 'YOUR_USERNAME',
+    apiToken: 'YOUR_TOKEN',
+    botEndpoint: 'YOUR_ENDPOINT',
+    notifications: true |false
+  }
+    </pre>
+  </p>
+  <p class="exercise">Go ahead and add a username for a bot called 'tutorial' and an API token with the valie
+    '1234567890'. In your own bot, you will have to replace this with your own values, which you can find in your
+    profile page and token page in <a href="https://www.pokerwars.io/">https://www.pokerwars.io/</a>, under your name in
+    the header after you sign in. We have filled in the bot endpoint for you and in this case we won't need the notifications.
+  </p>
+  <p>Once we subscribe to the Engine, it will responds with a status code <i>202 ACCEPTED</i> if everything went well.</p>
+  <p class="exercise">Go ahead and add the status code. This is not strictly necessary, but it's good practice to stop
+    the bot if it didn't subscribe successfully and it might be useful to know when things went well, so in this case we
+    are just printing a success message.</p>
+  <h2>That's it!</h2>
+  <p>Great! You have now a working bot in Javascript, that can subscribe and play poker with other bots. For now, it
+    always folds, so it's time to start thinking your own strategy to become the best bot of all, and why not, using AI
+    to make it even better!</p>
+</div>
