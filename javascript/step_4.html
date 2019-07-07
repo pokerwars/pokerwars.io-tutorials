@@ -1,0 +1,80 @@
+<div class="instructions">
+    <h2>Pokerwars actions</h2>
+    <h3>play</h3>
+    <p>Let's look at the play function first. Here in the <i>body</i> of the request we have an object called
+        <b>gameContext</b>. This contains all the information about the tournament e.g. the blinds, the turn, the cards
+        on the table and the different players and their chips and bets. It will also contain information about your own
+        cards.
+    </p>
+        <div>
+            <pre>
+    {
+        "smallBlind": 1,
+        "bigBlind": 2,
+        "yourCards": [
+            { "rank": "deuce", "suit": "clubs" },
+            { "rank": "seven", "suit": "hearts" }
+        ],
+        "tableCards": [
+            { "rank": "ace", "suit": "clubs" },
+            { "rank": "eight", "suit": "hearts" },
+            { "rank": "queen", "suit": "diamonds" },
+            { "rank": "three", "suit": "spades" },
+            { "rank": "king", "suit": "hearts" }
+        ],
+        "players": [
+            {
+                "username": "usernameOfSmallBlindBot",
+                "chips": 100,
+                "pot": 20,
+                "isAllIn": false,
+                "hasFolded": false
+            },
+            {
+                "username": "usernameOfbigBlindBot",
+                "chips": 22,
+                "pot": 10,
+                "isAllIn": false,
+                "hasFolded": true
+            },
+                {
+                "username": "bot3",
+                "chips": 0,
+                "pot": 20,
+                "isAllIn": true,
+                "hasFolded": false
+            },
+            {
+                "username": "yourUsername",
+                "chips": 45,
+                "pot": 10,
+                "isAllIn": false,
+                "hasFolded": false
+            },
+            ...
+        }
+    }
+            </pre>
+        </div>
+    <p>
+        With this information you will have to decide what to do next.
+    </p>
+    <p>Remember, the <i>play</i> endpoint will be called by the Pokerwars Engine. It will POST this data to you, and
+        you must respond with your next action. We do this by returning a <i>200 OK</i> status code with a JSON payload
+        that looks like this:
+        <pre>
+        {
+            action: 'SOME_ACTION'
+        }</pre>
+        There a multiple actions available, check the Pokerwars <a href="http://localhost:4200/how-to-play.html#_play"
+            target="_blank">documentation</a> for more information.
+    </p>
+    <p>In Express, we send a response by assigning a status code and a payload directly in the middleware function like
+        this.
+        <pre>res.status(200).send(SOME_PAYLOAD);</pre>
+    </p>
+    <p class="exercise">Go ahead and create a response with a payload that always do <b>'fold'</b>. Store the payload in a <i>var</i> called
+        <b>nextMove</b>. HINT - In Javascript we can assign a JSON object directly to a <i>var</i> like this:
+        <pre>var a = { foo: 'bar' }</pre>
+    </p>
+</div>

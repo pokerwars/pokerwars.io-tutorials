@@ -1,10 +1,8 @@
 <div class="instructions">
-    <h1>Setting up your environment</h1>
-    <p>
-        Welcome to Pokerwars! In this tutorial you will learn how to build a simple bot using Javascript. You can switch
-        your programming language anytime with the dropdown selector at the top right. Let's get started!
-    </p>
-    <h2>The starter projects</h2>
+    <p>Welcome to Pokerwars! In this tutorial you will learn how to build a simple bot. You can switch your programming language anytime with the dropdown selector at the top right. Let's get started!</p>
+    <p>Remember, <a href="https://github.com/pokerwars" target="_blank">starter bots</a> are always available if you prefer to run your bot locally.</p>
+    <h2>Setting up your environment</h3>
+    <h3>The starter projects</h3>
     <p>In our GitHub repository you can find starter projects for a number of languages. You are not limited to those,
         you can use any programming language you want as long as it's capable of sending and receiving HTTP requests.
     </p>
@@ -13,53 +11,4 @@
         an understanding of the game and the platform, and a working bot ready for you to implement your own unique
         strategy. How cool is that!
     </p>
-    <h2>Express</h2>
-    <p>In this example we will be using Express, the most popular web framework for Node.js, but you can use any other
-        similar alternative. We chose Express because it comes with a myriad of HTTP utility methods and middleware,
-        making it super quick and easy to use.
-    </p>
-    <p>We start by requiring and initialising <i>express</i> at the top. Additionally we set up a property <i>port</i>
-        where we will store the port where the application will be listening. Note how we set this in a way that we can
-        use an environment variable to override the default port <i>8090</i>. Finally, we use <i>body-parser</i>
-        middleware to parse incoming requests as JSON. The "extended" syntax allows for rich objects and arrays to be
-        encoded into the URL-encoded format, allowing for a JSON-like experience with URL-encoded. More information
-        about <i>body-parser</i> can be found <a href="https://www.npmjs.com/package/body-parser"
-            target="_blank">here</a>.
-    </p>
-    <p>For more information about Express check out their website <a
-            href="http://expressjs.com/en/starter/hello-world.html" target="_blank">here</a>.</p>
-    <h2>Routes and functions</h2>
-    <p>Next we need to declare some routes. These are endpoints that our application will be exposing when it's up and
-        running, and that will be called by the Pokerwars Engine! This Engine is where all the magic happens. It keeps
-        track of all the tournaments and calls each bot for the next action. For now, let's not worry about that and
-        let's focus on how to create routes.
-    </p>
-    <p>In Express, we can create a new route using
-        <i>app.route()</i>. In the code, we went ahead and created a route for the <i>play</i> action for you. This
-        is the endpoint the Engine will call (with a POST request) during the tournament to ask you for your next action
-        when your bot is playing. The endpoint itself needs to follow a convention where we have
-        <i>/pokerwars.io/</i> followed by the name of something the Engine understands, in this case
-        <i>play</i>. Once that endpoint is called, our application will call a function named
-        <i>play()</i> passing the HTTP request and HTTP response objects.</p>
-    <pre>var play = function (req, res) {};</pre>
-    <p>For now we'll leave this <i>play</i> function empty. In the next steps we'll see how it works.</p>
-    <p>In addition to <i>play</i> there are another two endpoints the game requires you to implement:</p>
-    <ul>
-        <li>
-            <i>ping</i>: used by the Engine when your bot subscribes to verify that is alive and responding.
-        </li>
-        <li>
-            <i>notifications</i>: this one is optional, you decide if you want them when you subscribe. Your bot
-            does not need to necessarily provide an endpoint for these, but they can give you useful hints on what
-            is happening during the tournaments. <b>Please do not use notifications in your bot logic, as they are
-            not guaranteed to always be sent. They are only informative so you are aware of what your bot is
-            doing.</b>
-        </li>
-    </ul>
-
-    <p class="exercise">Go ahead and create similar routes and functions for <b><i>ping</i></b> and
-        <b><i>notifications</i></b>. The ping route needs to be GET, and the notifications route needs to be POST.
-    </p>
-    <p><b>HINT: </b> create ping first and notifications second for the validation to pass.</p>
-
 </div>
