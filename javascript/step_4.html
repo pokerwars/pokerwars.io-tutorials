@@ -1,5 +1,5 @@
 <div class="instructions">
-    <h2>Pokerwars actions</h2>
+    <h2>pokerwars actions</h2>
     <h3>play</h3>
     <p>Let's look at the play function first. Here in the <i>body</i> of the request we have an object called
         <b>gameContext</b>. This contains all the information about the tournament e.g. the blinds, the turn, the cards
@@ -59,14 +59,14 @@
     <p>
         With this information you will have to decide what to do next.
     </p>
-    <p>Remember, the <i>play</i> endpoint will be called by the Pokerwars Engine. It will POST this data to you, and
+    <p>Remember, the <i>play</i> endpoint will be called by the pokerwars Engine. It will POST this data to you, and
         you must respond with your next action. We do this by returning a <i>200 OK</i> status code with a JSON payload
         that looks like this:
         <pre>
         {
             action: 'SOME_ACTION'
         }</pre>
-        There a multiple actions available, check the Pokerwars <a href="http://localhost:4200/how-to-play.html#_play"
+        There a multiple actions available, check the pokerwars <a href="http://localhost:4200/how-to-play.html#_play"
             target="_blank">documentation</a> for more information.
     </p>
     <p>In Express, we send a response by assigning a status code and a payload directly in the middleware function like

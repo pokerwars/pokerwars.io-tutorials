@@ -1,13 +1,13 @@
 <div class="instructions">
     <h2>Routes and functions</h2>
-    <p>Next we need to declare some routes. These are endpoints that our application will be exposing when it's up and
-        running, and that will be called by the Pokerwars Engine! This Engine is where all the magic happens. It keeps
-        track of all the tournaments and calls each bot for the next action. For now, let's not worry about that and
+    <p>Next we need to declare some routes. These are endpoints that our bot will be exposing when it's up and
+        running, and that will be called by the pokerwars Engine! This Engine is where all the magic happens. It keeps
+        track of all the poker tournaments and calls each bot for the next action. For now, let's not worry about that and
         let's focus on how to create routes.
     </p>
     <p>In Express, we can create a new route using
         <i>app.route()</i>. In the code, we went ahead and created a route for the <i>play</i> action for you. This
-        is the endpoint the Engine will call (with a POST request) during the tournament to ask you for your next action
+        is the endpoint the Engine will call (with a POST request) during the tournament to ask you for your next poker action (fold, call, bet or raise)
         when your bot is playing. The endpoint itself needs to follow a convention where we have
         <i>/pokerwars.io/</i> followed by the name of something the Engine understands, in this case
         <i>play</i>. Once that endpoint is called, our application will call a function named
