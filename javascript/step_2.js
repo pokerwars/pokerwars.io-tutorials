@@ -1,7 +1,8 @@
 // Require and initialise Express
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 8090, // if no PORT environment variable is present, 8090 will be used
+  // if no PORT environment variable is present, 8090 will be used
+  port = process.env.PORT || 8090,
   bodyParser = require('body-parser');
 
 // Middleware
