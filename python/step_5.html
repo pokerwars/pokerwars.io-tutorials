@@ -1,0 +1,27 @@
+<div class="instructions">
+    <h2>Our first method</h2>
+    <p>
+        We are not going to add the first method with some basic logic. We start simple, with the <em>ping</em> endpoint.
+        The desired behaviour is to receive a call from the pokerwars server, log it, and reply with a <em>pong</em>.
+    </p>
+    <p>
+        First we need to create a method linked to the <em>ping</em> endpoint. The syntax is <em>def</em>
+        keyword followed by the method name and the parameter (none at the moment) in brackets and colon symbol.
+    </p>
+    <p>
+        Then inside the method we are going to log the call: we are using the <em>printl</em> command with the following
+        message:
+    </p>
+    <pre>'Received ping from pokerwars.io, responding with a pong'</pre>
+    <p>
+        And finally the interesting part, replying back with a pong JSON content. We are doing that setting the
+        <em>response.content_type</em> to <em>'application/json'</em> and invoking the <em>return</em> command with
+        the JSON structure that we want to send back. E.g.
+    </p>
+    <pre>return {"pong": True}</pre>
+
+    <p class="exercise">
+        Now it's your turn, put together the 3 steps we described before, and you should be able to proceed to the next
+        level.
+    </p>
+</div>

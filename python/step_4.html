@@ -1,0 +1,73 @@
+<!--TODO this is way too long, but I don't know how to break it down, there is some theory on Rest and then some necessary info on pokerwars-->
+
+<div class="instructions">
+    <h1>RESTful Endpoints</h1>
+    <p>
+        Hey good to see you again. In this step we are going to have fun learning some very interesting concept about
+        API design.
+    </p>
+    <h2>The theory</h2>
+    <p>
+        So API are the connections between your software and the outside world, that can be another service in your
+        domain or someone else service that is trying to connect to yours.
+    </p>
+    <p>
+        We are going to focus on a specific kind of API called RESTful endpoints. REST is acronym for REpresentational
+        State Transfer, and it's an architecture to build APIs based on the HTTP protocol and the concept of
+        <em>resources</em> as the main communication actor.
+    </p>
+    <p>
+        As you will see soon, every endpoint is defining a way to access a specific resource that is stored or managed
+        by your service. The second key concept of REST is the <em>action</em> against a specific resource. The actions
+        are mapped one to one with the HTTP verbs:
+    </p>
+    <ul>
+        <li>GET: is used to read and obtain information on a specific resource</li>
+        <li>POST: translate to the act of creating a new resource</li>
+        <li>PUT - PATCH: the are both used to change the internal status of an existing resource</li>
+        <li>DELETE: (yes you got it) is to remove something.</li>
+    </ul>
+    <p>
+        Fore more interesting concepts about RESTful APIs follow this <a href="https://restfulapi.net/" target="_blank">link</a>.
+    </p>
+    <h2>pokerwars.io engine endpoints</h2>
+    <p>
+        Before you start coding, you need to know which are the key points of connection with pokerwars.io engine so you
+        can send and receive data from your service. We developed a very user friendly architecture, so you just have to
+        know about 3 points of connection:
+    </p>
+    <ul>
+        <li>subscribe: this is an endpoint that pokerwars.io is exposing to allow bots to register for a new tournament</li>
+        <li>ping: this is used by the system to check if your bot is alive and ready to play</li>
+        <li>play: the most important one. This is invoked by the system to ask to your bot what's the next action to take
+        in the game</li>
+        <li>notifications: this is not mandatory, but it helps your bot to have extra information on what's going on in
+        the game.</li>
+    </ul>
+    <h2>Theory in action</h2>
+    <p>
+        Now, finally, we can have fun. Let's start with creating 2 endpoints: the <em>play</em> and <em>ping</em> ones.
+    </p>
+    <p>
+        As we figured out before, the play endpoint is invoked by pokerwars.io system sending the game information and
+        it's asking for an <em>action</em> as return so it's a typical POST case.
+    </p>
+    <p>
+        On the other end, the ping endpoint is more asking for an internal status of the bot, so as we've seen in the
+        theory, it's a GET endpoint.
+    </p>
+    <p>
+        We already created the <em>notifications</em> endpoint. Starting with the bottle command to identify the type
+        of endpoint <em>@post</em> followed by the URL that we want to expose. In this case the URL starts with the
+        domain name <em>/pokerwars.io</em> and it's followed by the verb connected to the action.
+    </p>
+    <pre>@post('/pokerwars.io/notifications')</pre>
+    <p>
+        This means that we are exposing a new POST endpoint that external services can invoke to send us notifications.
+    </p>
+    <p class="exercise">
+        Now it's your turn, You need to create another 2 of them, <em>play</em> and <em>ping</em> following what we learned
+        so fa. Have fun!!!
+    </p>
+    <p><strong>HINT: </strong> create ping first and play second for the validation to pass.</p>
+</div>
