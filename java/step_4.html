@@ -1,0 +1,27 @@
+<div class="instructions">
+  <h3>Some Java code</h3>
+  <p>Let's see some Java code to create Phil, your first poker bot!</p>
+  <p>We need to do a couple of things to communicate via REST to pokerwars:</p>
+  <ul>
+    <li>Expose a <em>GET</em> endpoint called <strong>ping</strong>
+    </li>
+    <li>Expose a <em>POST</em> endpoint called <strong>play</strong></li>
+  </ul>
+  <h3>Ping</h3>
+  <p>pokerwars needs to know that Phil is alive and ready to play. This is the purpose of the <em>ping</em>
+    endpoint! pokerwars will do a <em>GET</em> request to your bot <em>ping</em> endpoint and, if
+    Phil will answer successfully, pokerwars will assume he is alive and ready to play poker.</p>
+  <p>
+    As you see in the code example on this page, we already built the <em>GET</em> <em>ping</em>
+    endpoint for you. It's just 3 lines of code (we are pretty sure you can find which one they
+    are!) and this is thanks to <a href="https://spring.io/projects/spring-boot" target="_blank">Spring
+    Boot</a>, the application framework we are using. This framework does lots of the dirty job for
+    us under the hood, making the code look nice and simple.</p>
+  <p>Have a look at the response, can you understand how it works? We are creating an <em>ok</em>
+    response, which of course means a positive response, and passing back a <em>Pong</em> object,
+    which is always set to <em>true</em>.
+  </p>
+  <p>We are ready to write some Java code to build Phil now! Let's go in the next step to do so.</p>
+  <p class="exercise">There is nothing to do yet, press Submit to validate the code, and then Next.
+  </p>
+</div>
