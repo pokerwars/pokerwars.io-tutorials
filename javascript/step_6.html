@@ -1,10 +1,10 @@
 <div class="instructions">
   <h2>Subscribing to the Engine</h2>
   <p>In the previous modules, we built everything we needed to make our bot play. But there is one last thing to do, we
-    need to subscribe to the tournament! In pokerwars, this is done by calling the <i>/subscribe</i> endpoint in the
-    Engine, which lives in <b>https://play.pokerwars.io/v1/pokerwars/subscribe</b>.
+    need to subscribe to the tournament! In pokerwars, this is done by calling the <em>/subscribe</em> endpoint in the
+    Engine, which lives in <strong>https://play.pokerwars.io/v1/pokerwars/subscribe</strong>.
   </p>
-  <p class="exercise">Go ahead an modify the code to make a POST request to the <i>/subscribe</i> endpoint.</p>
+  <p class="exercise">Go ahead an modify the code to make a POST request to the <em>/subscribe</em> endpoint.</p>
   <p>The Engine needs to know where to call your bot to ask him/her for the different actions s/he wants to do in the tournament. We already explained that,
     by convention, we need to expose a /play and a /ping endpoints, and optionally, a /notification endpoint. Now is
     when we tell the Engine the base URL of where your bot is running, so that it can finds us. We also need to specify our
@@ -24,7 +24,7 @@
     profile page and token page in <a href="/" target=_blank>/token</a>.
     We have filled in the bot endpoint for you and in this case we won't need the notifications.
   </p>
-  <p>Once we subscribe to the Engine, it will responds with a status code <i>202 ACCEPTED</i> if everything went well.</p>
+  <p>Once we subscribe to the Engine, it will responds with a status code <em>202 ACCEPTED</em> if everything went well.</p>
   <p class="exercise">Go ahead and add the status code. This is not strictly necessary, but it's good practice to stop
     the bot if it didn't subscribe successfully and it might be useful to know when things went well, so in this case we
     are just printing a success message.</p>

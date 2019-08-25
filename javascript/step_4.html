@@ -1,8 +1,8 @@
 <div class="instructions">
     <h2>pokerwars actions</h2>
     <h3>play</h3>
-    <p>Let's look at the play function first. Here in the <i>body</i> of the request we have an object called
-        <b>gameContext</b>. This contains all the information about the tournament e.g. the blinds, the turn, the cards
+    <p>Let's look at the play function first. Here in the <em>body</em> of the request we have an object called
+        <strong>gameContext</strong>. This contains all the information about the tournament e.g. the blinds, the turn, the cards
         on the table and the different players and their chips and bets. It will also contain information about your own
         cards.
     </p>
@@ -59,8 +59,8 @@
     <p>
         With this information you will have to decide what to do next.
     </p>
-    <p>Remember, the <i>play</i> endpoint will be called by the pokerwars Engine. It will POST this data to you, and
-        you must respond with your next action. We do this by returning a <i>200 OK</i> status code with a JSON payload
+    <p>Remember, the <em>play</em> endpoint will be called by the pokerwars Engine. It will POST this data to you, and
+        you must respond with your next action. We do this by returning a <em>200 OK</em> status code with a JSON payload
         that looks like this:
         <pre>
         {
@@ -73,8 +73,8 @@
         this.
         <pre>res.status(200).send(SOME_PAYLOAD);</pre>
     </p>
-    <p class="exercise">Go ahead and create a response with a payload that always do <b>'fold'</b>. Store the payload in a <i>var</i> called
-        <b>nextMove</b>. HINT - In Javascript we can assign a JSON object directly to a <i>var</i> like this:
+    <p class="exercise">Go ahead and create a response with a payload that always do <strong>'fold'</strong>. Store the payload in a <em>var</em> called
+        <strong>nextMove</strong>. HINT - In Javascript we can assign a JSON object directly to a <em>var</em> like this:
         <pre>var a = { foo: 'bar' }</pre>
     </p>
 </div>
