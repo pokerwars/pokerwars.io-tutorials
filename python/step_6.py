@@ -15,6 +15,9 @@ port          = 3000
 
 @post('/pokerwars.io/notifications')
 
-// Add here the play missing endpoint
+@get('/pokerwars.io/ping')
+// Add the missing method here
+
+@post('/pokerwars.io/play')
 
 run(host='0.0.0.0', port=port)

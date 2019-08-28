@@ -1,0 +1,33 @@
+<div class="instructions">
+    <h2>Our first method</h2>
+    <p>
+        We are now going to add the first method with some basic logic. We start simple, with the <em>ping</em> endpoint.
+        The desired behaviour is to receive a call from the pokerwars server, log it, and reply with a <em>pong</em>.
+    </p>
+    <p>
+        The syntax is the following:
+    </p>
+    <pre>
+        def method_name(parameters):
+        return "hello world"
+    </pre>
+    <p>
+        In our case, inside the method we are going to log the call using the <em>printl</em> command with the following
+        message:
+    </p>
+    <pre>'Received ping from pokerwars.io, responding with a pong'</pre>
+    <p>
+        And finally the interesting part, replying back with a pong JSON content. This is how to do it
+    </p>
+    <pre>
+        response.content_type = 'application/json'
+        return {"pong": True}
+    </pre>
+    <p>
+        Setting the content type to JSON and then invoking the <em>return</em> keyword with a the pong JSON response.
+    </p>
+
+    <p class="exercise">
+        Now it's your turn, put together the previous steps and you would be able to proceed to the next level.
+    </p>
+</div>

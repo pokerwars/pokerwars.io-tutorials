@@ -15,6 +15,12 @@ port          = 3000
 
 @post('/pokerwars.io/notifications')
 
-// Add here the play missing endpoint
+@get('/pokerwars.io/ping')
+def ping():
+    print('Received ping from pokerwars.io, responding with a pong')
+    response.content_type = 'application/json'
+    return {"pong": True}
+
+@post('/pokerwars.io/play')
 
 run(host='0.0.0.0', port=port)
